@@ -74,12 +74,23 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          _repository.getList().then((response) {
+          _repository.getNowPlayingList().then((response) {
             setState(() {
               _movies = response.results;
-              print("movies : ${_movies[1]}");
             });
           });
+          // _repository.getPopularList().then((response) {
+          //   setState(() {
+          //     _movies = response.results;
+          //     print("movies : ${_movies[1]}");
+          //   });
+          // });
+          // _repository.getUpcomingList().then((response) {
+          //   setState(() {
+          //     _movies = response.results;
+          //     print("movies : ${_movies[1]}");
+          //   });
+          // });
         },
         child: Icon(Icons.add),
       ),

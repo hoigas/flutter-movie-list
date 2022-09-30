@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 class ApiProvider {
   final _host = 'api.themoviedb.org';
   final _apiVersion = 3;
-  final _apiKey = '3df8f8a5929d4068223d35671dff9b97';
+  final _apiKey = '';
   final _language = 'ko-KR';
 
   Future<String> get({required String path, Map<String, String>? parameters}) async {

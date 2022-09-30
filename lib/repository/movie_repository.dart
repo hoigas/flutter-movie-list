@@ -11,9 +11,31 @@ class MovieRepository {
     required ApiProvider provider,
   }) : _provider = provider;
 
-  Future<MovieList> getList() async {
+  Future<MovieList> getNowPlayingList() async {
     final response = await _provider.get(
       path: 'movie/now_playing',
+      parameters: {
+        'page': "1",
+      },
+    );
+
+    return MovieList.fromJson(jsonDecode(response));
+  }
+
+  Future<MovieList> getPopularList() async {
+    final response = await _provider.get(
+      path: 'movie/popular',
+      parameters: {
+        'page': "1",
+      },
+    );
+
+    return MovieList.fromJson(jsonDecode(response));
+  }
+
+  Future<MovieList> getUpcomingList() async {
+    final response = await _provider.get(
+      path: 'movie/upcoming',
       parameters: {
         'page': "1",
       },

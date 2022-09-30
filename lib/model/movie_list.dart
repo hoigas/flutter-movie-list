@@ -18,7 +18,8 @@ class MovieList {
     this.totalResults = 0,
   }) : results = results ?? [];
 
-  factory MovieList.fromJson(Map<String, dynamic> json) => _$MovieListFromJson(json);
+  factory MovieList.fromJson(Map<String, dynamic> json) =>
+      _$MovieListFromJson(json);
 
   @override
   String toString() {
