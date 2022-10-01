@@ -18,11 +18,24 @@ class MovieList {
     this.totalResults = 0,
   }) : results = results ?? [];
 
-  factory MovieList.fromJson(Map<String, dynamic> json) =>
-      _$MovieListFromJson(json);
+  factory MovieList.fromJson(Map<String, dynamic> json) => _$MovieListFromJson(json);
 
   @override
   String toString() {
     return 'MovieList{page: $page, results: $results, totalPages: $totalPages, totalResults: $totalResults}';
+  }
+
+  MovieList copyWith({
+    int? page,
+    List<Movie>? results,
+    int? totalPages,
+    int? totalResults,
+  }) {
+    return MovieList(
+      page: page ?? this.page,
+      results: results ?? this.results,
+      totalPages: totalPages ?? this.totalPages,
+      totalResults: totalResults ?? this.totalResults,
+    );
   }
 }

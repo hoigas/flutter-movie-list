@@ -45,23 +45,20 @@ class _PageCardListWidgetState extends State<PageCardListWidget> {
             'https://image.tmdb.org/t/p/w500/${movie.backdropPath}',
             fit: BoxFit.fitHeight,
           ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
-                child: Text(
-                  movie.title,
-                  style: const TextStyle(
-                    fontSize: 23,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+            child: Align(
+              alignment: Alignment.bottomLeft,
+              child: Text(
+                movie.title,
+                style: const TextStyle(
+                  fontSize: 23,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
                 ),
               ),
-            ],
-          ),
+            ),
+          )
         ],
       ),
     );
