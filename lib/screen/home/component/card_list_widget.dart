@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_movie_list/model/movie.dart';
+import 'package:flutter_movie_list/screen/movie_detail/movie_detail.dart';
+
+import '../../../main.dart';
 
 class CardListWidget extends StatefulWidget {
   final List<Movie> movies;
@@ -43,31 +46,36 @@ class _CardListWidgetState extends State<CardListWidget> {
   }
 
   Widget _buildCard(Movie movie) {
-    return SizedBox(
-      width: 140,
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(10),
-            child: Image.network(
-              'https://image.tmdb.org/t/p/w500/${movie.posterPath}',
-              height: 200,
-              fit: BoxFit.fitHeight,
+    return GestureDetector(
+      onTap: () {
+        Navigator.pushNamed(context, movieDetailRoute, arguments: movie.id);
+      },
+      child: SizedBox(
+        width: 140,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadius.circular(10),
+              child: Image.network(
+                'https://image.tmdb.org/t/p/w500/${movie.posterPath}',
+                height: 200,
+                fit: BoxFit.fitHeight,
+              ),
             ),
-          ),
-          const SizedBox(height: 8),
-          Text(
-            movie.title,
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
-            style: const TextStyle(
-              fontSize: 18,
-              color: Colors.white,
-              fontWeight: FontWeight.bold,
+            const SizedBox(height: 8),
+            Text(
+              movie.title,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: const TextStyle(
+                fontSize: 18,
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
