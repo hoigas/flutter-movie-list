@@ -54,4 +54,15 @@ class MovieRepository {
     );
     return Movie.fromJson(jsonDecode(response));
   }
+
+  Future<MovieList> searchMovie(String search) async {
+    final response = await _provider.get(
+      path: 'search/movie',
+      parameters: {
+        'page': "1",
+        'query': search,
+      },
+    );
+    return MovieList.fromJson(jsonDecode(response));
+  }
 }

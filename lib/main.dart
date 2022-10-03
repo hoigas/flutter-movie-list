@@ -6,7 +6,6 @@ import 'package:flutter_movie_list/screen/home/blocs/error_count/error_count_blo
 import 'package:flutter_movie_list/screen/home/blocs/now_playing_movie/now_playing_movie_list_bloc.dart';
 import 'package:flutter_movie_list/screen/home/blocs/popular/popular_movie_list_bloc.dart';
 import 'package:flutter_movie_list/screen/home/blocs/upcoming/upcoming_movie_list_bloc.dart';
-import 'package:flutter_movie_list/screen/home/home_screen.dart';
 import 'package:flutter_movie_list/screen/movie_detail/movie_detail.dart';
 import 'package:flutter_movie_list/screen/movie_search/movie_search.dart';
 import 'package:flutter_movie_list/screen/tab_page/tab_page.dart';
