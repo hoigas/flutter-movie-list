@@ -33,7 +33,6 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       backgroundColor: Colors.black,
       body: buildBody(),
-      bottomNavigationBar: buildBottom(),
     );
   }
 
@@ -128,45 +127,6 @@ class _HomeScreenState extends State<HomeScreen> {
                   ],
                 );
         },
-      ),
-    );
-  }
-
-  Widget buildBottom() {
-    return BottomAppBar(
-      color: Colors.black,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(
-              Icons.home,
-              color: Colors.white,
-            ),
-          ),
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(
-              Icons.favorite_outline,
-              color: Colors.white,
-            ),
-          ),
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(
-              Icons.search,
-              color: Colors.white,
-            ),
-          ),
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(
-              Icons.person_outline,
-              color: Colors.white,
-            ),
-          ),
-        ],
       ),
     );
   }

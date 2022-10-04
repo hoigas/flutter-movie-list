@@ -29,16 +29,20 @@ class _MovieContentsState extends State<MovieContents> {
     return BlocBuilder<MovieDetailBloc, MovieDetailState>(
       builder: (context, state) {
         if (state.status == MovieListStatus.initial) {
-          return Container();
+          return Container(
+            color: Colors.black,
+          );
         }
 
         if (state.status == MovieListStatus.error) {
-          return Container();
+          return Container(
+            color: Colors.black,
+          );
         }
 
         if (state.status == MovieListStatus.loading) {
-          return const SizedBox(
-            height: 260,
+          return Container(
+            color: Colors.black,
             child: Center(
               child: CircularProgressIndicator(),
             ),
@@ -54,6 +58,7 @@ class _MovieContentsState extends State<MovieContents> {
               state.movie.backdropPath == ''
                   ? Container(
                       height: 200,
+                      color: Colors.black,
                       child: Center(
                         child: CircularProgressIndicator(),
                       ),
