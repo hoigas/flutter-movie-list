@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_movie_list/model/movie.dart';
+import 'package:flutter_movie_list/screen/movie_detail/movie_detail.dart';
+
+import '../../../main.dart';
 
 class PageCardListWidget extends StatefulWidget {
   final List<Movie> movies;
@@ -37,29 +40,34 @@ class _PageCardListWidgetState extends State<PageCardListWidget> {
   }
 
   Widget _buildCard(Movie movie) {
-    return Container(
-      child: Stack(
-        fit: StackFit.expand,
-        children: [
-          Image.network(
-            'https://image.tmdb.org/t/p/w500/${movie.backdropPath}',
-            fit: BoxFit.fitHeight,
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
-            child: Align(
-              alignment: Alignment.bottomLeft,
-              child: Text(
-                movie.title,
-                style: const TextStyle(
-                  fontSize: 23,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
+    return GestureDetector(
+      onTap: () {
+        Navigator.pushNamed(context, movieDetailRoute, arguments: movie.id);
+      },
+      child: Container(
+        child: Stack(
+          fit: StackFit.expand,
+          children: [
+            Image.network(
+              'https://image.tmdb.org/t/p/w500/${movie.backdropPath}',
+              fit: BoxFit.fitHeight,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+              child: Align(
+                alignment: Alignment.bottomLeft,
+                child: Text(
+                  movie.title,
+                  style: const TextStyle(
+                    fontSize: 23,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
                 ),
               ),
-            ),
-          )
-        ],
+            )
+          ],
+        ),
       ),
     );
   }

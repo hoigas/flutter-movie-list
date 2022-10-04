@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:flutter_movie_list/model/movie.dart';
 import 'package:flutter_movie_list/repository/api/ApiProvider.dart';
 
 import '../model/movie_list.dart';
@@ -42,5 +43,15 @@ class MovieRepository {
     );
 
     return MovieList.fromJson(jsonDecode(response));
+  }
+
+  Future<Movie> getMovieDetail(int id) async {
+    final response = await _provider.get(
+      path: 'movie/$id',
+      parameters: {
+        'page': "1",
+      },
+    );
+    return Movie.fromJson(jsonDecode(response));
   }
 }

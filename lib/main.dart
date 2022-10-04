@@ -7,10 +7,14 @@ import 'package:flutter_movie_list/screen/home/blocs/now_playing_movie/now_playi
 import 'package:flutter_movie_list/screen/home/blocs/popular/popular_movie_list_bloc.dart';
 import 'package:flutter_movie_list/screen/home/blocs/upcoming/upcoming_movie_list_bloc.dart';
 import 'package:flutter_movie_list/screen/home/home_screen.dart';
+import 'package:flutter_movie_list/screen/movie_detail/movie_detail.dart';
 
 void main() {
   runApp(const MyApp());
 }
+
+const String homeScreenRoute = '/';
+const String movieDetailRoute = '/movie_detail';
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -18,7 +22,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Movie List',
+      onGenerateRoute: (settings) {
+        switch (settings.name) {
+          case homeScreenRoute:
+            return MaterialPageRoute(builder: (context) => const HomeScreen());
+          case movieDetailRoute:
+            final id = settings.arguments as int;
+            return MaterialPageRoute(builder: (context) => MovieDetail(id: id));
+        }
+      },
+      // initialRoute: '/',
       theme: ThemeData(
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
